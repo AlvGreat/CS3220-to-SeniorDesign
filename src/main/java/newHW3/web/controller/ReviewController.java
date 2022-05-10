@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import newHW3.model.Movie;
 import newHW3.model.Review;
 import newHW3.model.dao.MovieDao;
 import newHW3.model.dao.ReviewDao;
@@ -36,15 +35,11 @@ public class ReviewController {
 		return "reviews/add";
 	}
 	
-	@RequestMapping(value="movies/add/{id}", method=RequestMethod.POST)
-	public String add(@PathVariable Integer id, String username, int rating, String review) {
-		Review r = new Review();
-		r.setMovie(movieDao.getMovie(id));
-		r.setUsername(username);
-		r.setRating(rating);
-		r.setReview(review);
-		reviewDao.saveReview(r);
-		return "redirect:/movies/list";
+	@RequestMapping(value="movies/add/{movie_id}", method=RequestMethod.POST)
+	public String add(@PathVariable Integer movie_id, Review review) {		
+		review.setMovie(movieDao.getMovie(movie_id));
+		reviewDao.saveReview(review);
+		return "redirect:/movies/list/" + movie_id;
 	}
 	
 }

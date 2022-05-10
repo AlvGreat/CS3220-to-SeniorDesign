@@ -28,11 +28,8 @@ public class MovieController {
 	}
 	
 	@RequestMapping(value="movies/add", method=RequestMethod.POST)
-	public String add(String title, int year) {
-		Movie m = new Movie();
-		m.setTitle(title);
-		m.setYear(year);
-		movieDao.saveMovie(m);
+	public String add(Movie movie) {
+		movieDao.saveMovie(movie);
 		return "redirect:/movies/list";
 	}
 	
