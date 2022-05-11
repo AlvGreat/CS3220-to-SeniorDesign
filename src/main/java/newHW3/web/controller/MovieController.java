@@ -33,4 +33,9 @@ public class MovieController {
 		return "redirect:/movies/list";
 	}
 	
+	@RequestMapping(value="movies/testAjax", method=RequestMethod.GET)
+	public String testAjax() {
+		return "movies/testAjax"; 
+	}
+	
 }

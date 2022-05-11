@@ -24,6 +24,7 @@ Web Application:
 - Add a movie at `/movies/add`
 - View a movie's reviews at `/movies/list/{movie id}`
 - Add a review to a movie at `/movies/add/{movie id}`
+- See an example of using AJAX and jQuery to call API: `/movies/testAjax`
 
 API:
 - Get the list of all movies at `/api/movies`
